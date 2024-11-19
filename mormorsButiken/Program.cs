@@ -6,7 +6,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        StartMenu menu = new StartMenu(); 
-        menu.Start();
+        // StartMenu menu = new StartMenu(); 
+        // menu.Start();
+        Console.Write("Holla mi amigo!");
     }
 }
