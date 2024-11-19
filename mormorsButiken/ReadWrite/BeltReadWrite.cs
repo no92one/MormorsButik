@@ -8,7 +8,7 @@ namespace mormorsButiken.ReadWrite;
 public class BeltReadWrite
 {
 
-    public void read()
+    public List<StockItem> read()
     {
         
         string fileName = "Belts.csv";
@@ -35,6 +35,6 @@ public class BeltReadWrite
             BeltList.Add(newStockItem);
         }
 
-        Console.WriteLine(BeltList[0].Product.Name);
+        return BeltList;
     }
 }

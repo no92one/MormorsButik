@@ -3,7 +3,7 @@
 public class BottomsMenu
 {
     
-    public void Start()
+    public void Start(List<StockItem> storeInventory)
     {
         bool run = true;
         while (run)

@@ -4,14 +4,16 @@ public class BrowesItemsMenu
 {
     public TopsMenu TopMenu;
     public BottomsMenu BottomMenu;
+    public AccessoriesMenu AccessoriesMenu;
 
     public BrowesItemsMenu()
     {
         TopMenu = new TopsMenu();
         BottomMenu = new BottomsMenu();
+        AccessoriesMenu = new AccessoriesMenu();
     }
     
-    public void Start()
+    public void Start(List<StockItem> storeInventory)
     {
         bool run = true;
         while (run)
@@ -21,6 +23,7 @@ public class BrowesItemsMenu
                               $"\n" +
                               $"\n1. Tops" +
                               $"\n2. Bottoms" +
+                              $"\n3. Accessories" +
                               $"\nB. Back" +
                               $"\n" );
             
@@ -29,11 +32,15 @@ public class BrowesItemsMenu
             switch (choice.Trim().ToLower())
             {
                 case "1":
-                    TopMenu.Start();
+                    TopMenu.Start(storeInventory);
                     break;
                 
                 case "2":
-                    BottomMenu.Start();
+                    BottomMenu.Start(storeInventory);
+                    break;
+                
+                case "3":
+                    AccessoriesMenu.Start(storeInventory);
                     break;
                 
                 case "b":

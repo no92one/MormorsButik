@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-using mormorsButiken.Items;
-using mormorsButiken.Items.Accessories.Belt;
+﻿using mormorsButiken.ReadWrite;
 
 namespace mormorsButiken.Menus;
 
@@ -35,7 +33,7 @@ public class StartMenu
             switch (choice.Trim())
             {
                 case "1":
-                    BIMenu.Start();
+                    BIMenu.Start(StoreInventory);
                     break;
                 
                 case "2":
@@ -60,35 +58,43 @@ public class StartMenu
 
     private void populateStoreInventory()
     {
-        StoreInventory.Add(new StockItem(
-            new Belt(200, "Skin bälte", "Brun", BeltSize.Cm80 )
-            , 5));
-        StoreInventory.Add(new StockItem(
-            new Belt(200, "Skin bälte", "Brun", BeltSize.Cm85 )
-            , 5));
-        StoreInventory.Add(new StockItem(
-            new Belt(200, "Skin bälte", "Brun", BeltSize.Cm90 )
-            , 5));
+        BeltReadWrite bwr = new BeltReadWrite();
+        List<StockItem> beltList = bwr.read();
+
+        foreach (var belt in beltList)
+        {
+            StoreInventory.Add(belt);
+        }
         
-        StoreInventory.Add(new StockItem(
-            new Belt(200, "Skin bälte", "Svart", BeltSize.Cm90 )
-            , 5));
-        StoreInventory.Add(new StockItem(
-            new Belt(200, "Skin bälte", "Svart", BeltSize.Cm100 )
-            , 5));
-        StoreInventory.Add(new StockItem(
-            new Belt(200, "Skin bälte", "Svart", BeltSize.Cm105 )
-            , 5));
-        
-        StoreInventory.Add(new StockItem(
-            new Belt(200, "Skin bälte", "Ljus Brun", BeltSize.Cm90 )
-            , 5));
-        StoreInventory.Add(new StockItem(
-            new Belt(200, "Skin bälte", "Ljus Brun", BeltSize.Cm100 )
-            , 5));
-        StoreInventory.Add(new StockItem(
-            new Belt(200, "Skin bälte", "Ljus Brun", BeltSize.Cm105)
-            , 5));
+        // StoreInventory.Add(new StockItem(
+        //     new Belt(200, "Skin bälte", "Brun", BeltSize.Cm80 )
+        //     , 5));
+        // StoreInventory.Add(new StockItem(
+        //     new Belt(200, "Skin bälte", "Brun", BeltSize.Cm85 )
+        //     , 5));
+        // StoreInventory.Add(new StockItem(
+        //     new Belt(200, "Skin bälte", "Brun", BeltSize.Cm90 )
+        //     , 5));
+        //
+        // StoreInventory.Add(new StockItem(
+        //     new Belt(200, "Skin bälte", "Svart", BeltSize.Cm90 )
+        //     , 5));
+        // StoreInventory.Add(new StockItem(
+        //     new Belt(200, "Skin bälte", "Svart", BeltSize.Cm100 )
+        //     , 5));
+        // StoreInventory.Add(new StockItem(
+        //     new Belt(200, "Skin bälte", "Svart", BeltSize.Cm105 )
+        //     , 5));
+        //
+        // StoreInventory.Add(new StockItem(
+        //     new Belt(200, "Skin bälte", "Ljus Brun", BeltSize.Cm90 )
+        //     , 5));
+        // StoreInventory.Add(new StockItem(
+        //     new Belt(200, "Skin bälte", "Ljus Brun", BeltSize.Cm100 )
+        //     , 5));
+        // StoreInventory.Add(new StockItem(
+        //     new Belt(200, "Skin bälte", "Ljus Brun", BeltSize.Cm105)
+        //     , 5));
     }
 
     public void printStoreInventory()

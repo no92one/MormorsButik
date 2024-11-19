@@ -2,7 +2,7 @@
 
 public class TopsMenu
 {
-    public void Start()
+    public void Start(List<StockItem> storeInventory)
     {
         bool run = true;
         while (run)
