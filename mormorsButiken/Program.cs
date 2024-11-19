@@ -1,4 +1,5 @@
 ﻿using mormorsButiken.Menus;
+using mormorsButiken.ReadWrite;
 
 namespace mormorsButiken;
 
@@ -8,6 +9,8 @@ class Program
     {
         // StartMenu menu = new StartMenu(); 
         // menu.Start();
-        Console.Write("Holla mi amigo!");
+        
+        BeltReadWrite bwr = new BeltReadWrite();
+        bwr.read();
     }
 }
