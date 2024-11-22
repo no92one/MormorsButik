@@ -8,5 +8,6 @@ class Program
     {
         StartMenu menu = new StartMenu(); 
         menu.Start();
+        Console.ReadLine();
     }
 }
